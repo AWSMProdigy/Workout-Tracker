@@ -5,11 +5,10 @@ const Schema = mongoose.Schema;
 const workoutScehema = new Schema({
   day: {
       type: Date,
-      required: "Please enter a date"
-  },
+      default: new Date()
+  }, 
   exercises: {
-      type: Array,
-      required: "Need excercises"
+      type: Array
   }
 });
 

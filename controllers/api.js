@@ -31,7 +31,7 @@ router.get("/workouts", async (req, res) => {
         totalDuration: { $sum: "$exercises.duration" } ,
       }
     }])
-    .limit(10)
+    .sort({ date: -1 })
     .then(dbWorkout => {
       res.json(dbWorkout);
     })

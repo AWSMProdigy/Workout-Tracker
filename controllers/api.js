@@ -3,7 +3,6 @@ const Workout = require("../models/workout");
 const router = require("express").Router();
 
 router.post("/workouts", ({ body }, res) => {
-  console.log( )
   Workout.create(body)
     .then(dbWorkout => {
       res.json(dbWorkout);
@@ -31,7 +30,7 @@ router.get("/workouts", async (req, res) => {
         totalDuration: { $sum: "$exercises.duration" } ,
       }
     }])
-    .sort({ day: -1 })
+    .sort({ day: 1 })
     .then(dbWorkout => {
       res.json(dbWorkout);
     })

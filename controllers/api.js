@@ -31,7 +31,7 @@ router.get("/workouts", async (req, res) => {
         totalDuration: { $sum: "$exercises.duration" } ,
       }
     }])
-    .sort({ date: -1 })
+    .sort({ day: -1 })
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
@@ -47,7 +47,8 @@ router.get('/workouts/range', async (req, res) => {
       totalDuration: { $sum: "$exercises.duration" } ,
     }
   }])
-  .sort({ date: -1 })
+  .sort({ day: -1 })
+  .limit(10)
   .then(dbWorkout => {
     res.json(dbWorkout);
   })

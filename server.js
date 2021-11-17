@@ -13,11 +13,10 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://Kyle-Admin:Harvard214@cluster0.nlfqz.mongodb.net/workout_db?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
-  useCreateIndex: true
 });
 
 // routes
